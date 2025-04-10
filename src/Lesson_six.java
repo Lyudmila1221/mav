@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-class Product {
+/*class Product {
     private String name;
     private String manufactureDate;
     private String manufacturer;
