@@ -3,17 +3,13 @@ package phonebook;
 import java.util.*;
 
 public class PhoneBook {
-    public final Map<String, List<String>> book;
+    private final Map<String, List<String>> contacts = new HashMap<>();
 
-    public PhoneBook() {
-        book = new HashMap<>();
-    }
-
-    public void add(String surname, String phoneNumber) {
-        book.computeIfAbsent(surname, k -> new ArrayList<>()).add(phoneNumber);
+    public void add(String surname, String phone) {
+        contacts.computeIfAbsent(surname, k -> new ArrayList<>()).add(phone);
     }
 
     public List<String> get(String surname) {
-        return book.getOrDefault(surname, Collections.emptyList());
+        return contacts.getOrDefault(surname, Collections.emptyList());
     }
 }
