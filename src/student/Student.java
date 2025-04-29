@@ -15,27 +15,25 @@ public class Student {
         this.grades = grades;
     }
 
-    public String getName() {
-        return name;
+    public double getAverageGrade() {
+        return grades.stream().mapToInt(Integer::intValue).average().orElse(0);
     }
 
-    public String getGroup() {
-        return group;
+    public void promote() {
+        if (getAverageGrade() >= 3) {
+            course++;
+        }
     }
 
     public int getCourse() {
         return course;
     }
 
-    public void setCourse(int course) {
-        this.course = course;
+    public String getName() {
+        return name;
     }
 
-    public List<Integer> getGrades() {
-        return grades;
-    }
-
-    public double getAverageGrade() {
-        return grades.stream().mapToInt(Integer::intValue).average().orElse(0.0);
+    public double getGPA() {
+        return getAverageGrade();
     }
 }
